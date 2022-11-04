@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promise.reject-案例-数据为空</title>
+</head>
+
+<body>
+  <script>
+    var p = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(null)
+      }, 1000)
+    })
+    p.then(res => {
+      console.log(res)
+
+      if (res) {
+        console.log('渲染页面函数调用')
+      } else {
+        return Promise.reject('error')
+        // throw new Error('kerwin=error')
+      }
+    }).catch(err => {
+      console.log(err)
+    })
+  </script>
+</body>
+
+</html>

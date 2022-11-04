@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>初识Promise</title>
+</head>
+
+<body>
+  <script>
+    function ajax(url, successCb, errorCb) {
+      setTimeout(() => {
+        // 如果成功
+        // successCb()
+        // 如果失败
+        errorCb()
+      }, 1000)
+    }
+    // 回调地狱问题
+    ajax("1111", () => {
+      console.log('ajax成功')
+      ajax("2222", () => {
+        console.log('ajax成功')
+        ajax("3333", () => {
+          console.log('ajax成功')
+        }, () => {
+          console.log('ajax失败')
+        })
+      }, () => {
+        console.log('ajax失败')
+      })
+    }, () => {
+      console.log('ajax失败')
+    })
+  </script>
+</body>
+
+</html>

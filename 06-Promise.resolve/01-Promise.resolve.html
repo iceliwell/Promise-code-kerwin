@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promise.resolve</title>
+</head>
+
+<body>
+  <script>
+    // resolve转换成Promise对象
+    // var q = Promise.resolve({ name: 'iceliwell' })
+    // console.log(q)
+    // 参数也可以是一个Promise对象
+    var p1 = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        // resolve('adta-1111')
+        reject('error')
+      }, 1000)
+    })
+    var p2 = Promise.resolve(p1)
+    console.log(p2)
+  </script>
+</body>
+
+</html>
